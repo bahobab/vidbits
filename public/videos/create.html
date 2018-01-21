@@ -6,6 +6,12 @@
     <link rel='stylesheet' href='stylesheets/style.css'>
   </head>
   <body>
-    <button>Save a video</button>      
+    <form action="/videos" method="POST">
+        <label for="title">Title</label>
+        <input id="title" type="text" name="title" />
+        <label for="description">Description</label>
+        <input id="description" type="text" name="description" />
+    </form>
+    <button id="createVideoSubmit">Save a video</button>      
   </body>
 </html>
