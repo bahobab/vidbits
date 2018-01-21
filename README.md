@@ -1,0 +1,3 @@
+This is Codecademy project...
+
+a web application for users to post their favorite videos
