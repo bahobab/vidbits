@@ -21,6 +21,6 @@ describe('user visits landing page', () => {
             var videosPage = 'Save a video';
             // assert: the create page contains 'Save a video'
             assert.include(browser.getText('body'), videosPage);
-        })
+        });
     });
 });

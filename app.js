@@ -35,4 +35,10 @@ app.use((err, req, res, next) => {
   res.render('error');
 });
 
+app.post((req, res, next) => {
+  console.log('>>> request ==>', req.headers);
+  res.status(201).send();
+});
+
+
 module.exports = app;

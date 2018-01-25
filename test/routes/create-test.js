@@ -5,7 +5,7 @@ const {assert} = require('chai'),
 const app = require('../../app');
 const Video = require('../../models/video');
 
-describe('server path: /videos', () => {
+// describe('server path: /videos', () => {
     describe('describe POST', () => {
         it('create: returns 201 status code', async () => {
             // set up
@@ -16,7 +16,8 @@ describe('server path: /videos', () => {
                             .type('form')
                             .send(video);
             // assert
+            // console.log('>>> response:', response);
             assert.equal(response.status, 201);
         });
     });
-});
+// });
