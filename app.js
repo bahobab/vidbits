@@ -35,9 +35,9 @@ app.use((err, req, res, next) => {
   res.render('error');
 });
 
-app.post((req, res, next) => {
+app.post('/videos/', (req, res, next) => {
   console.log('>>> request ==>', req.headers);
-  res.status(201).send();
+  res.status(201).send('Hi!');
 });
 
 
