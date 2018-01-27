@@ -17,13 +17,6 @@ if (process.env.NODE_ENV !== 'test') {
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  const err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
-
 // Error handler
 app.use((err, req, res, next) => {
   // Set locals, only providing error in development
@@ -35,10 +28,16 @@ app.use((err, req, res, next) => {
   res.render('error');
 });
 
-app.post('/videos', (req, res, next) => {
+app.post('/videos', async (req, res, next) => {
   console.log('>>> request ==>', req.headers);
-  res.status(201).send('Hi!');
+  await res.status(201).send();
 });
 
+// Catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
 
 module.exports = app;
