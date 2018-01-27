@@ -4,6 +4,8 @@ const expressHandlebars = require('express-handlebars');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 
+const videoRouter = require('./routes/videos');
+
 const app = express();
 
 // View engine setup
@@ -28,10 +30,6 @@ app.use((err, req, res, next) => {
   res.render('error');
 });
 
-app.post('/videos', async (req, res, next) => {
-  console.log('>>> request ==>', req.headers);
-  await res.status(201).send();
-});
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
