@@ -1,8 +1,10 @@
+const Video = require('../models/video');
 const router = require('express').Router();
 
 router.post('/videos', async (req, res) => {
-   
-    await res.status(201).send();
+    const {title, description} = req.body;
+    const newVideo = await Video.create({title, description});
+    res.status(201).send(newVideo);
 });
 
 
