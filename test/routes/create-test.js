@@ -2,8 +2,8 @@ const {assert} = require('chai'),
       request = require('supertest'),
       jsDom = require('jsdom');
 
+const {connectDatabase, disconnectDatabase} = require('../database-utilities');
 const Video = require('../../models/video');
-const {connectDatabase, disconnectDatabase} = require('../models/video-test');
     
 const app = require('../../app');
 
