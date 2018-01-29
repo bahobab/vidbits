@@ -34,6 +34,7 @@ describe('server path: /videos', () => {
                             .type('form')
                             .send(myVideo);
             const createdVideo = await Video.findOne(myVideo);
+            // console.log('>>>>', createdVideo);
             // assert
             assert.equal(createdVideo.title, myVideo.title);
             assert.equal(createdVideo.description, myVideo.description);
