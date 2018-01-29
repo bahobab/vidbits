@@ -4,7 +4,7 @@ const router = require('express').Router();
 router.post('/videos', async (req, res) => {
     const {title, description} = req.body;
     const newVideo = await Video.create({title, description});
-    res.status(201).send(newVideo);
+    res.status(201).send(`<h1>${{title}}</h1><p>${{description}}</p>newVideo`);
 });
 
 

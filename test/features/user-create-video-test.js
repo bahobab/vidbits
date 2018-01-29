@@ -6,8 +6,8 @@ describe('user creates video', () => {
             // setup: navigate to the create video page
             browser.url('/videos/create.html');
             // set up video properties
-            const videoTitle = 'video title';
-            const videoDescription = 'video description';
+            const videoTitle = 'title';
+            const videoDescription = 'description';
             browser.setValue('#title', videoTitle);
             browser.setValue('#description', videoDescription);
             
