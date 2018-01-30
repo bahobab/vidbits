@@ -4,7 +4,7 @@ describe('user creates video', () => {
     describe('post new video', () => {
         it('renders posted video', () => {
             // setup: navigate to the create video page
-            browser.url('/videos/create.html');
+            browser.url('/videos/create');
             // set up video properties
             const videoTitle = 'title';
             const videoDescription = 'description';
