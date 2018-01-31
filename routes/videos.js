@@ -12,7 +12,8 @@ router.get('/videos/create', async (req, res) => {
 router.post('/videos', async (req, res) => {
     const {title, description} = req.body;
     const newVideo = await Video.create({title, description});
-    res.status(201).send(`<h1>${{title}}</h1><p>${{description}}</p>newVideo`);
+    // res.status(201).send(`<h1>${{title}}</h1><p>${{description}}</p>newVideo`);
+    res.status(201).render('videos/show', {video: newVideo});
 });
 
 
