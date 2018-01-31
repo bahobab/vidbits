@@ -13,6 +13,17 @@ describe('user visits landing page', () => {
         });
     });
 
+    describe('if videos exist on the page', () => {
+        it('shows list of existing videos', () =>{
+            // set up
+            const videoElements = '';
+            // exercise
+            browser.url('/');
+            const createdVideos = browser.getText('#videos-container');
+            // assert
+            assert.notEqual(createdVideos, videoElements);
+        });
+    });
     describe('navigate to create page', () => {
         it('click link to go to create video page', () => {
             // set up & exercise
