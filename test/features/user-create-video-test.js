@@ -1,4 +1,5 @@
 const { assert} = require('chai');
+const {buildVideoItem} = require('../test-utils');
 
 describe('user creates video', () => {
     describe('post new video', () => {
@@ -6,17 +7,16 @@ describe('user creates video', () => {
             // setup: navigate to the create video page
             browser.url('/videos/create');
             // set up video properties
-            const videoTitle = 'title';
-            const videoDescription = 'description';
-            browser.setValue('#title', videoTitle);
-            browser.setValue('#description', videoDescription);
+            const video = buildVideoItem();
+            browser.setValue('#title', video.title);
+            browser.setValue('#description', video.description);
             
             // exercise: click to submit creation
             browser.click('#createVideoSubmit');
             
             // assert: user can see created video on page
-            assert.include(browser.getText('body'), videoTitle);
-            assert.include(browser.getText('body'), videoDescription);
+            assert.include(browser.getText('body'), video.title);
+            assert.include(browser.getText('body'), video.description);
         });
     });
 });

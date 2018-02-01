@@ -3,6 +3,7 @@ const {assert} = require('chai'),
       jsDom = require('jsdom');
 
 const {connectDatabase, disconnectDatabase} = require('../database-utilities');
+const {parseTextFromHTML, buildVideoItem} = require('../test-utils');
 const Video = require('../../models/video');
     
 const app = require('../../app');
@@ -15,7 +16,7 @@ describe('server path: /videos', () => {
     describe('describe POST', () => {
         it('create: returns 201 status code', async () => {
             // set up
-            const video = {title: 'My video', description: 'My vacation'};
+            const video = buildVideoItem();
             // exercise
             const response = await request(app)
                             .post('/videos')
@@ -27,7 +28,7 @@ describe('server path: /videos', () => {
 
         it('actually creates and saves a video with title and description', async () => {
             // set up
-            const myVideo = {title: 'My video', description: 'My Great Vacation'};
+            const myVideo = buildVideoItem();
             // exercise
             const response = await request(app)
                             .post('/videos')

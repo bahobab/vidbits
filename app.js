@@ -30,6 +30,9 @@ app.use((err, req, res, next) => {
   res.render('error');
 });
 
+app.get('/', (req, res) => {
+  res.redirect('/videos');
+})
 app.use('/', videoRouter);
 
 // Catch 404 and forward to error handler

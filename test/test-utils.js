@@ -10,4 +10,10 @@ const parseTextFromHTML = (htmlAsString, selector) => {
     }
 }
 
-module.exports = {parseTextFromHTML};
+const buildVideoItem = (options = {}) => {
+    const title = options.title || 'my kool video';
+    const description = options.description || 'lunar eclipse';
+    return {title, description};
+}
+
+module.exports = {parseTextFromHTML, buildVideoItem};

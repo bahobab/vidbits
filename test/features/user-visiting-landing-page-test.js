@@ -1,4 +1,5 @@
 const {assert} = require('chai');
+const {buildVideoItem} = require('../test-utils');
 
 describe('user visits landing page', () => {
     describe('first visit', () => {
@@ -16,12 +17,16 @@ describe('user visits landing page', () => {
     describe('if videos exist on the page', () => {
         it('shows list of existing videos', () =>{
             // set up
-            const videoElements = '';
+            const video = buildVideoItem();
             // exercise
+            browser.url('/videos/create');
+            browser.setValue('#title', video.title);
+            browser.setValue('#description', video.description);
+            browser.click('#createVideoSubmit');
             browser.url('/');
-            const createdVideos = browser.getText('#videos-container');
             // assert
-            assert.notEqual(createdVideos, videoElements);
+            // assert.notEqual(createdVideos, videoElements);
+            assert.include(browser.getText('#videos-container'), 'my kool video');
         });
     });
     describe('navigate to create page', () => {
