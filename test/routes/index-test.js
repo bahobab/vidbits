@@ -6,6 +6,7 @@ const app = require('../../app');
 
 const Video = require('../../models/video');
 const {connectDatabaseAndDropData, disconnectDatabase} = require('../setup-teardown-utils');
+const {parseTextFromHTML} = require('../test-utils');
 
 describe('GET', () => {
     // database set up and teardown
@@ -22,8 +23,8 @@ describe('GET', () => {
             const response = await request(app)
                             .get('/');
             // assert
-            assert.include(response.text, 'video1 kool1');
-            assert.include(response.text, 'video2 kool2');
+            assert.include(parseTextFromHTML(response.text, '#videos-container'), 'video1 kool1');
+            // assert.include(response.text, 'video2 kool2');
         });
     });
 });
