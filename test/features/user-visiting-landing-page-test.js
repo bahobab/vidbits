@@ -15,7 +15,7 @@ describe('user visits landing page', () => {
     });
 
     describe('if videos exist on the page', () => {
-        it('shows list of existing videos', () =>{
+        it('show list of existing videos', () =>{
             // set up
             const video = buildVideoItem();
             // exercise
@@ -26,7 +26,8 @@ describe('user visits landing page', () => {
             browser.url('/');
             // assert
             // assert.notEqual(createdVideos, videoElements);
-            assert.include(browser.getText('#videos-container'), 'my kool video');
+            const page = browser.getText('html');
+            assert.include(page, 'my kool video');
         });
     });
     describe('navigate to create page', () => {

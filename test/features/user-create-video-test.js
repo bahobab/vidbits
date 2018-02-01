@@ -13,6 +13,7 @@ describe('user creates video', () => {
             
             // exercise: click to submit creation
             browser.click('#createVideoSubmit');
+            // browser.url('/');
             
             // assert: user can see created video on page
             assert.include(browser.getText('body'), video.title);
